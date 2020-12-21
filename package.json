@@ -1,0 +1,58 @@
+{
+	"name": "@little-bonsai/ingrates-fetch",
+	"version": "0.1.0",
+	"description": "An actor to perform fetch requests",
+
+	"source": "src/index.js",
+	"main": "dist/index.js",
+	"module": "dist/index.module.js",
+	"unpkg": "dist/index.umd.js",
+
+	"keywords": ["actor", "actors", "browser", "node", "isomorphic", "fetch"],
+
+	"files": ["dist", "src"],
+
+	"scripts": {
+		"test": "NODE_ENV=test node test.js",
+		"build": "microbundle",
+		"prepublishOnly": "npm run build",
+		"format": "prettier --write src/**/*",
+		"prepushOnly": "npm run format && && npm run test && npm run build",
+		"test:watch": "NODE_ENV=test jest src test --watch --bail --runInBand",
+		"watch": "microbundle watch"
+	},
+
+	"author": "",
+	"license": "ISC",
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+
+	"prettier": {
+		"tabWidth": 4,
+		"trailingComma": "all",
+		"useTabs": true,
+		"overrides": [
+			{
+				"files": ["**/*.md"],
+				"options": {
+					"useTabs": false,
+					"tabWidth": 2
+				}
+			}
+		]
+	},
+
+	"devDependencies": {
+		"@little-bonsai/ingrates": "^0.3.4",
+		"eslint": "^7.16.0",
+		"eslint-config-react-app": "^6.0.0",
+		"eslint-plugin-flowtype": "^5.2.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-react": "^7.21.5",
+		"microbundle": "^0.12.4",
+		"node-fetch": "^2.6.1",
+		"prettier": "^2.2.1"
+	}
+}
