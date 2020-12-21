@@ -17,16 +17,22 @@ createActorSystem()(async function* testActor({ spawn, dispatch, query }) {
 
   dispatch(fetcher, {
     type: "REQUEST",
-    url: "https://jsonplaceholder.typicode.com/todos/1",
+
     transform: "json",
-    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/todos/1",
+    options: {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    },
   });
 
   const response2 = await query(fetcher, {
     type: "REQUEST",
-    url: "https://jsonplaceholder.typicode.com/todos/2",
+
     transform: "json",
-    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/todos/2",
   });
 
   console.log(response2);

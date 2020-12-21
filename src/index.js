@@ -7,7 +7,7 @@ module.exports = function* fetchActor({ dispatch, parent }) {
 				break;
 
 			case "REQUEST":
-				fetch(msg.url, { method: msg.method || "GET" })
+				fetch(msg.url, msg.options)
 					.then((response) => {
 						if (msg.transform === "json") {
 							return response.json();
